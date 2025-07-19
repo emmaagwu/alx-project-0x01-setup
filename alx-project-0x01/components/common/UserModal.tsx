@@ -1,11 +1,12 @@
 // components/common/UserModal.tsx
 
 import React, { useState } from "react";
-import { UserData, UserModalProps } from "@/interfaces";
+import { UserProps, UserModalProps } from "@/interfaces";
 
 
 const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
-  const [formData, setFormData] = useState<UserData>({
+  const [formData, setFormData] = useState<UserProps>({
+    id: 0,
     name: "",
     username: "",
     email: "",
