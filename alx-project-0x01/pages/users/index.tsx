@@ -33,11 +33,6 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
           <UserCard key={user.id} {...user} />
         ))}
       </div>
-
-      {/* {posts.map((user) => (
-          <UserCard key={user.id} {...user} />
-        ))} */}
-
       {isModalOpen && (
         <UserModal onClose={() => setModalOpen(false)} onSubmit={handleAddUser} />
       )}
