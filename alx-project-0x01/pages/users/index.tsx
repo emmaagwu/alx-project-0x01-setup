@@ -4,16 +4,16 @@ import UserCard from "@/components/common/UserCard";
 import UserModal from "@/components/common/UserModal";
 
 interface UsersPageProps {
-  posts: UserProps[];
+  users: UserProps[];
 }
 
-const Users: React.FC<UsersPageProps> = ({ posts }) => {
-  const [users, setUsers] = useState<UserProps[]>(posts);
+const Users: React.FC<UsersPageProps> = ({ users }) => {
+  const [userList, setUserList] = useState<UserProps[]>(users);
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleAddUser = (newUser: UserData) => {
-    const newUserWithId = { ...newUser, id: users.length + 1 };
-    setUsers([newUserWithId, ...users]);
+    const newUserWithId = { ...newUser, id: userList.length + 1 };
+    setUserList([newUserWithId, ...userList]);
   };
 
   return (
@@ -42,11 +42,11 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
 
 export async function getStaticProps() {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const posts = await response.json();
+  const users = await response.json();
 
   return {
     props: {
-      posts,
+      users,
     },
   };
 }
